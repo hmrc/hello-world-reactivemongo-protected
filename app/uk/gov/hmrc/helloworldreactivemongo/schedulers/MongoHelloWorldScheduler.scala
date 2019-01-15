@@ -23,7 +23,7 @@ class MongoHelloWorldScheduler @Inject()(service: HelloWorldService, actorSystem
 
   actorSystem.scheduler.schedule(FiniteDuration(1, TimeUnit.SECONDS), interval) {
     logger.info("Scheduling a mongo counter")
-    service.addObjectAndCountAll()
+    service.addObjectAndCountAll().recover{case e ⇒ logger.error("failed", e)}
   }
 
 }
