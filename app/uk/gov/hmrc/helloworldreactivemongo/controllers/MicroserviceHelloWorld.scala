@@ -20,7 +20,7 @@ class MicroserviceHelloWorld @Inject()(implicit val ec: ExecutionContext)
     /*helloService.addObjectAndCountAll().map { count =>
       Ok(Json.obj("count" -> count))
     }*/
-    Ok(Json.obj("count" -> 0))
+    Ok(Json.obj("count" -> -1))
   }
 
 }
